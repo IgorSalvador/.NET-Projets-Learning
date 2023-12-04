@@ -26,20 +26,26 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(Todo todo in Model.Todos)
+                @foreach (Todo todo in Model.Todos)
                 {
                     <tr>
                         <td>@todo.Id</td>
                         <td>@todo.Title</td>
                         <td>@todo.Date.ToShortDateString()</td>
-                        <td>@todo.IsCompleted</td>
                         <td>
-                            @if(todo.IsCompleted.HasValue && todo.IsCompleted == false)
+                            @if(todo.IsCompleted.HasValue && todo.IsCompleted.Value)
                             {
-                                <a asp-controller="Todo" asp-action="ToComplete" asp-route-id="@todo.Id" class="btn btn-sm btn-success">Concluir</a>
+                                <i class="text-success" data-feather="check-square"></i>
                             }
+                            else
+                            {
+                                <i class="text-danger" data-feather="x-square"></i>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="Todo" asp-action="ToComplete" asp-route-id="@todo.Id" class="btn btn-sm btn-success @(todo.IsCompleted.HasValue && todo.IsCompleted.Value ? "disabled" : "")">Concluir</a>
                             <a asp-controller="Todo" asp-action="Edit" asp-route-id="@todo.Id" class="btn btn-sm btn-warning">Editar</a>
-                            <a asp-controller="Todo" asp-action="Delete" asp-route-id="@todo.Id" class="btn btn-sm btn-danger">Excluir</a>
+                            <a asp-controller="Todo" asp-action="Delete" asp-route-id="@todo.Id" onclick="return confirm('Tem certeza que deseja excluir essa tarefa?')" class="btn btn-sm btn-danger">Excluir</a>
                         </td>
                     </tr>
                 }

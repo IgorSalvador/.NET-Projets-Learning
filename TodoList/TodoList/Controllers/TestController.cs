@@ -8,7 +8,8 @@ namespace TodoList.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            Todo todo = new Todo("Estudar Asp.NET", "Estudo de ASP.NET", DateTime.Now);
+            return View(todo);
         }
     }
 }

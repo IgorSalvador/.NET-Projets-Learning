@@ -1,1 +1,21 @@
-﻿<h1>Olá TreinaWeb!</h1>
+﻿@model Todo
+@{
+    string nome = "TreinaWeb!";
+
+    CardData card = new CardData { Title = "Titulo do Card", Subtitle = "Subtitulo do card", Content = "Conteudo do card" };
+}
+
+<partial name="_Header"/>
+
+<h1>Olá @nome!</h1>
+
+<div class="row mt-2">
+    <h4>Sua tarefa de hoje</h4>
+    @Html.DisplayFor(model => model.Title)
+    @Html.DisplayFor(model => model.Description)
+    @Html.DisplayFor(model => model.Date)
+</div>
+
+<div class="row mt-2">
+    <partial name="_Card" model="card"/>
+</div>

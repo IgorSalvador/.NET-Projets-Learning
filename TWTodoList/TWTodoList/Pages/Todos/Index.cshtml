@@ -1,0 +1,58 @@
+﻿@page
+@model TWTodoList.Pages.Todos.IndexModel
+
+<div class="row mb-2">
+    <div class="col text-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a asp-page="Create" class="btn btn-primary">Nova Tarefa</a>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Data</th>
+                    <th>Completa?</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Todos)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @if (item.IsCompleted)
+                            {
+                                <i class="text-success" data-feather="check-circle"></i>
+                            }
+                            else
+                            {
+                                <i class="text-danger" data-feather="x-circle"></i>
+                            }
+                        </td>
+                        <td>
+                            @if (!item.IsCompleted)
+                            {
+                                <a asp-page-handler="Complete" asp-route-id="@item.Id" class="btn btn-success">Concluir</a>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            }
+                            <a asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir a tarefa?')">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

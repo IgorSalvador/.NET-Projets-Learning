@@ -1,0 +1,12 @@
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\bin\Debug\net6.0\CostManager.Models.deps.json
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\bin\Debug\net6.0\CostManager.Models.dll
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\bin\Debug\net6.0\CostManager.Models.pdb
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\CostManager.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\CostManager.Models.AssemblyInfoInputs.cache
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\CostManager.Models.AssemblyInfo.cs
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\CostManager.Models.csproj.CoreCompileInputs.cache
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\CostManager.Models.sourcelink.json
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\CostManager.Models.dll
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\refint\CostManager.Models.dll
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\CostManager.Models.pdb
+C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManager.Models\obj\Debug\net6.0\ref\CostManager.Models.dll

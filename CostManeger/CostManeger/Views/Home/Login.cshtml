@@ -1,9 +1,11 @@
 ﻿@model CostManeger.Models.ViewModels.Login.LoginViewModel
 @{
-    string errorLogin = ViewData["ErrorLogin"] as string;
     Layout = "_LayoutAuth";
+    ViewData["Title"] = "SignIn";
+    string? errorLogin = ViewData["ErrorLogin"] as string;
 }
-<div class="row mb-2">
+
+<div class="row mb-2 mt-5">
     <div class="col text-center">
         <h1>@ViewData["Title"]</h1>
     </div>

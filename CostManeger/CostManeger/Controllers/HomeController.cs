@@ -1,5 +1,4 @@
-﻿using CostManager.Models;
-using CostManeger.Database;
+﻿using CostManeger.Database;
 using CostManeger.Models;
 using CostManeger.Models.Utils;
 using CostManeger.Models.ViewModels.Login;
@@ -27,7 +26,7 @@ namespace CostManeger.Controllers
             _configuration = configuration;
         }
 
-        [Authorize]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
@@ -36,8 +35,6 @@ namespace CostManeger.Controllers
         [AllowAnonymous]
         public IActionResult Login(bool errorLogin = false)
         {
-            ViewData["Title"] = "SignIn";
-
             if (HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
                 return RedirectToAction();
 
@@ -50,8 +47,6 @@ namespace CostManeger.Controllers
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            ViewData["Title"] = "SignIn";
-
             if (!ModelState.IsValid)
             {
                 return View(loginViewModel);

@@ -1,0 +1,63 @@
+﻿@using CostManeger.Models.Utils
+@model IEnumerable<CostManeger.Models.Usuario>
+@{
+    ViewData["Title"] = "Listagem de usuários";
+}
+
+<div class="row mb-2 mt-4">
+    <div class="col">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        <a class="btn btn-success" asp-controller="User" asp-action="Create"><i data-feather="user-plus"></i> Novo</a>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>E-mail</th>
+                    <th>Perfil</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td>@usuario.Id</td>
+                        <td>@usuario.Name</td>
+                        <td>@usuario.Surname</td>
+                        <td>@usuario.Email</td>
+                        <td>@ProfileOptins.GetProfileDescription(usuario.Profile)</td>
+                        <td>
+                            @if (usuario.IsActive)
+                            {
+                                <i class="text-success" data-feather="check-square"></i>
+                            }
+                            else
+                            {
+                                <i class="text-danger" data-feather="x-square"></i>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="Todo" asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm btn-warning">Editar</a>
+                            <a asp-controller="Todo" asp-action="Delete" asp-route-id="@usuario.Id" class="btn btn-sm btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

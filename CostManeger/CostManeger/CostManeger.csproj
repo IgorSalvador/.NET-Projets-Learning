@@ -20,8 +20,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CostManager.Models\CostManager.Models.csproj" />
-  </ItemGroup>
-
 </Project>

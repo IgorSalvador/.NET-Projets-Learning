@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CostManager.Models
+﻿namespace CostManeger.Models
 {
     public class Usuario
     {
@@ -19,5 +13,6 @@ namespace CostManager.Models
         public string? RG { get; set; }
         public DateTimeOffset CreateOn { get; set; } = DateTimeOffset.Now;
         public int Profile { get; set; } = 0;
+        public bool IsActive { get; set; }
     }
 }

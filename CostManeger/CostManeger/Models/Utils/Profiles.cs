@@ -2,9 +2,9 @@
 {
     public enum Profiles
     {
-        General = 0,
-        Viewer = 1,
-        Administrator = 2
+        General = 1,
+        Viewer = 2,
+        Administrator = 3
     }
 
     public static class ProfileOptins
@@ -15,13 +15,13 @@
 
             switch (profile)
             {
-                case 0:
+                case 1:
                     description = "General";
                     break;
-                case 1:
+                case 2:
                     description = "Viewer";
                     break;
-                case 2:
+                case 3:
                     description = "Administrator";
                     break;
                 default:

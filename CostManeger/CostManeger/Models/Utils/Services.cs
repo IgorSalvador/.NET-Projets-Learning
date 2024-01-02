@@ -1,4 +1,4 @@
-﻿using CostManager.Models;
+﻿using CostManeger.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;

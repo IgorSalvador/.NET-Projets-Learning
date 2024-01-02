@@ -4,6 +4,7 @@ using CostManeger.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CostManeger.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240101211408_CreateProfileTableAndDefaultValues")]
+    partial class CreateProfileTableAndDefaultValues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +39,6 @@ namespace CostManeger.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.ToTable("Perfis");
@@ -48,23 +47,20 @@ namespace CostManeger.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 1, 20, 18, 53, 54, DateTimeKind.Unspecified).AddTicks(705), new TimeSpan(0, -3, 0, 0, 0)),
-                            Description = "General",
-                            IsActive = true
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 1, 18, 14, 8, 755, DateTimeKind.Unspecified).AddTicks(8713), new TimeSpan(0, -3, 0, 0, 0)),
+                            Description = "General"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 1, 20, 18, 53, 54, DateTimeKind.Unspecified).AddTicks(707), new TimeSpan(0, -3, 0, 0, 0)),
-                            Description = "Viewer",
-                            IsActive = true
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 1, 18, 14, 8, 755, DateTimeKind.Unspecified).AddTicks(8716), new TimeSpan(0, -3, 0, 0, 0)),
+                            Description = "Viewer"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 1, 20, 18, 53, 54, DateTimeKind.Unspecified).AddTicks(710), new TimeSpan(0, -3, 0, 0, 0)),
-                            Description = "Administrator",
-                            IsActive = true
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 1, 18, 14, 8, 755, DateTimeKind.Unspecified).AddTicks(8718), new TimeSpan(0, -3, 0, 0, 0)),
+                            Description = "Administrator"
                         });
                 });
 
@@ -88,9 +84,6 @@ namespace CostManeger.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()

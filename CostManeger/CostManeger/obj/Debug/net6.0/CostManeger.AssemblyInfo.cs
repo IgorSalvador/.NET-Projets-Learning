@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CostManeger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff4a84eeff9d537066a44e4f5cb645d84d63853b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56a3eb73304085217da42860488d66b568f4d777")]
 [assembly: System.Reflection.AssemblyProductAttribute("CostManeger")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CostManeger")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

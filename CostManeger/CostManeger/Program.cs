@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = new PathString("/Home/Index"); // 401 - Unathorized
-        options.AccessDeniedPath = new PathString("/Home/Index"); // 403 - Forbidden
+        options.LoginPath = new PathString("/Home/Login"); // 401 - Unathorized
+        options.AccessDeniedPath = new PathString("/Home/AccessDenied"); // 403 - Forbidden
     });
 
 // Add services to the container.
@@ -42,6 +42,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();

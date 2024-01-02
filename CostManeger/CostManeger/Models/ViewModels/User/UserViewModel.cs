@@ -6,8 +6,6 @@ namespace CostManeger.Models.ViewModels.User
 {
     public class UserViewModel
     {
-        public int Id { get; set; }
-
         [DisplayName("Nome")]
         [Required(ErrorMessage = "Nome obrigatório!")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Deve conter entre 3 e 50 caracteres!")]
@@ -63,7 +61,6 @@ namespace CostManeger.Models.ViewModels.User
 
         public UserViewModel(Usuario usuario)
         {
-            Id = usuario.Id;
             Name = usuario.Name;
             Surname = usuario.Surname;
             Email = usuario.Email;

@@ -26,7 +26,7 @@ namespace CostManeger.Controllers
             _configuration = configuration;
         }
 
-        [AllowAnonymous]
+        [Authorize]
         public IActionResult Index()
         {
             return View();
@@ -54,18 +54,33 @@ namespace CostManeger.Controllers
 
             string encryptedPassword = MD5Encryption.GetMD5Hash(loginViewModel.Password);
 
-            Usuario usuario = _db.Usuarios.Where(u => u.Email.ToUpper().Equals(loginViewModel.Username.ToUpper()) && u.Password.ToUpper().Equals(loginViewModel.Password)).FirstOrDefault();
+            Usuario usuario = _db.Usuarios.Where(u => u.Email.ToUpper().Equals(loginViewModel.Username.ToUpper()) && u.Password.ToUpper().Equals(encryptedPassword.ToUpper())).FirstOrDefault();
 
             if(usuario == null)
             {
                 return RedirectToAction(nameof(Login), new { errorLogin = true});
             }
 
-            await new Services().Login(HttpContext, usuario);
+            await new Services().SignIn(HttpContext, usuario);
 
-            return RedirectToAction();
+            return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet, Authorize]
+        public async Task<IActionResult> LogOut()
+        {
+            await new Services().SignOut(HttpContext);
+
+            return RedirectToAction(nameof(Login));
+        }
+
+        [HttpGet, Authorize]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();

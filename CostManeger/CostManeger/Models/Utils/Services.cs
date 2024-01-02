@@ -7,12 +7,12 @@ namespace CostManeger.Models.Utils
 {
     public class Services
     {
-        public async Task Login(HttpContext ctx, Usuario usuario)
+        public async Task SignIn(HttpContext ctx, Usuario usuario)
         {
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, usuario.Email),
-                new Claim(ClaimTypes.Name, usuario.Name),
+                new Claim(ClaimTypes.Name, $"{usuario.Name} {usuario.Surname}"),
                 new Claim(ClaimTypes.Role, ProfileOptins.GetProfileDescription(usuario.Profile))
             };
 

@@ -36,7 +36,7 @@ namespace CostManeger.Controllers
         public IActionResult Login(bool errorLogin = false)
         {
             if (HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
-                return RedirectToAction();
+                return RedirectToAction(nameof(Index));
 
             if (errorLogin)
                 ViewData["ErrorLogin"] = "Usuário ou senha inválidos";

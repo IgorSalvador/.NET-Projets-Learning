@@ -2,10 +2,12 @@
 using CostManeger.Models;
 using CostManeger.Models.Utils;
 using CostManeger.Models.ViewModels.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CostManeger.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class UserController : Controller
     {
         private readonly AppDbContext context;

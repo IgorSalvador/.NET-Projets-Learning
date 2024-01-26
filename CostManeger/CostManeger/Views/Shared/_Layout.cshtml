@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@{
+    var role = ((ClaimsIdentity)User.Identity).Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).FirstOrDefault();
+}
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
@@ -19,14 +24,17 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Administração
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item text-light" asp-controller="User" asp-action="Index">Usuários</a></li>
-                            </ul>
-                        </li>
+                        @if (role == "Administrator")
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Administração
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item text-light" asp-controller="User" asp-action="Index">Usuários</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                     <div class="my-2 my-lg-0">
                         <span class="text-light pr-2">@User.Identity?.Name</span>

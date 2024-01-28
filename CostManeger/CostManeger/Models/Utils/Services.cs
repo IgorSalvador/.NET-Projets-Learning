@@ -22,7 +22,8 @@ namespace CostManeger.Models.Utils
             var authProperties = new AuthenticationProperties
             {
                 ExpiresUtc = DateTime.Now.AddHours(1),
-                IssuedUtc = DateTime.Now
+                IssuedUtc = DateTime.Now,
+                IsPersistent = true
             };
 
             await ctx.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimIdentity, authProperties);

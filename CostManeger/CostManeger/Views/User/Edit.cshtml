@@ -1,0 +1,103 @@
+﻿@model CostManeger.Models.ViewModels.User.EditUserViewModel
+@{
+    ViewData["Title"] = "Novo usuário";
+    List<Perfis> ProfileOptions = ViewData["ProfileOptions"] as List<Perfis> ?? new List<Perfis>();
+}
+
+<div class="row mt-5 mb-2">
+    <div class="col">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { autocomplete = "off" }))
+        {
+            <input asp-for=Id type="hidden"/>
+
+            <div class="row mb-2">
+                <div class="col-md-6 form-group">
+                    <label asp-for=Name class="form-label">Nome</label>
+                    <input asp-for=Name type="text" class="form-control" autocomplete="off" />
+                    <span asp-validation-for=Name class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for=Surname class="form-label">Sobrenome</label>
+                    <input asp-for=Surname type="text" class="form-control" autocomplete="off" />
+                    <span asp-validation-for=Surname class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-md-6 form-group">
+                    <label asp-for=Email class="form-label">E-mail</label>
+                    <input asp-for=Email type="text" class="form-control" autocomplete="off" />
+                    <span asp-validation-for=Email class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for=PhoneNumber class="form-label">Telefone</label>
+                    <input asp-for=PhoneNumber type="text" class="form-control" placeholder="(XX) X XXXX-XXXX" autocomplete="off" data-mask="(00) 0 0000-0000" />
+                    <span asp-validation-for=PhoneNumber class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-md-6 form-group">
+                    <label asp-for=BirthDate class="form-label">Data de Nascimento</label>
+                    <input asp-for=BirthDate type="date" class="form-control" autocomplete="off" />
+                    <span asp-validation-for=BirthDate class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for=Profile class="form-label">Perfil</label>
+                    <select asp-for=Profile class="form-select">
+                        <option value="0" selectd></option>
+                        @foreach (var profile in ProfileOptions)
+                        {
+                            <option value="@profile.Id">@profile.Description</option>
+                        }
+                    </select>
+                    <span asp-validation-for=Profile class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6 form-group">
+                    <label asp-for=CPF class="form-label">CPF</label>
+                    <input asp-for=CPF type="text" class="form-control" autocomplete="off" data-mask="000.000.000-00" />
+                    <span asp-validation-for=CPF class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for=RG class="form-label">RG</label>
+                    <input asp-for=RG type="text" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="RG" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2 ms-1">
+                <div class="form-check form-switch">
+                    <input asp-for=IsActive type="checkbox" class="form-check-input"/>
+                    <label asp-for=IsActive class="form-check-label">Status</label>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-controller="User" asp-action="Index" class="btn btn-default">Voltar</a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-mask/jquery.mask.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
+}

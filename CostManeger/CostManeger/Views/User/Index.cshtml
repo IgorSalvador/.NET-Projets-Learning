@@ -50,18 +50,8 @@
                             }
                         </td>
                         <td>
-                            <a asp-controller="User" asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm @(usuario.IsActive ? "btn-danger" : "btn-success")">
-                                @if (usuario.IsActive)
-                                {
-                                    <span>Ativar</span>
-                                }
-                                else
-                                {
-                                    <span>Desativar</span>
-                                }
-                            </a>
-                            <a asp-controller="User" asp-action="Disable" asp-route-id="@usuario.Id" class="btn btn-sm btn-warning"><i data-feather="edit"></i></a>
-                            <a asp-controller="User" asp-action="Delete" asp-route-id="@usuario.Id" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></a>
+                            <a asp-controller="User" asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm btn-warning" title="Editar"><i data-feather="edit"></i></a>
+                            <a asp-controller="User" asp-action="Delete" asp-route-id="@usuario.Id" class="btn btn-sm btn-danger" title="Excluir"><i data-feather="trash-2"></i></a>
                         </td>
                     </tr>
                 }

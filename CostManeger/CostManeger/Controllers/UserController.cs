@@ -38,9 +38,7 @@ namespace CostManeger.Controllers
             string password = string.Empty, encryptedPassword = string.Empty;
 
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
             #region Remove masks
 
@@ -55,7 +53,61 @@ namespace CostManeger.Controllers
             context.Usuarios.Add(usuario);
             context.SaveChanges();
 
-            return RedirectToAction(nameof(Index), nameof(User));
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewData["ProfileOptions"] = context.Perfis.Where(p => p.IsActive).ToList();
+
+            Usuario usuario = context.Usuarios.Find(id)!;
+
+            if (usuario == null)
+                return NotFound();
+
+            return View(new EditUserViewModel(usuario));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditUserViewModel model)
+        {
+            ViewData["ProfileOptions"] = context.Perfis.Where(p => p.IsActive).ToList();
+
+            if (!ModelState.IsValid)
+                return View(model);
+
+            Usuario usuario = context.Usuarios.Find(model.Id)!;
+
+            usuario.Name = model.Name;
+            usuario.Surname = model.Surname;
+            usuario.Email = model.Email;
+            usuario.Phone = model.PhoneNumber;
+            usuario.BirthDate = model.BirthDate;
+            usuario.CPF = !string.IsNullOrEmpty(model.CPF) ? model.CPF.Replace(".", "").Replace("-", "") : string.Empty;
+            usuario.RG = usuario.RG;
+            usuario.Profile = model.Profile;
+            usuario.IsActive = model.IsActive;
+
+            context.Entry(usuario).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            Usuario usuario = context.Usuarios.Find(id)!;
+
+            if (usuario == null)
+                return NotFound();
+
+            context.Remove(usuario);
+            context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

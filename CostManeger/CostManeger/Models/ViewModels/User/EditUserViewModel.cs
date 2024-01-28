@@ -1,11 +1,13 @@
-﻿using CostManeger.Models;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace CostManeger.Models.ViewModels.User
 {
-    public class UserViewModel
+    public class EditUserViewModel
     {
+        [DisplayName("Id")]
+        public int Id { get; set; }
+
         [DisplayName("Nome")]
         [Required(ErrorMessage = "Nome obrigatório!")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Deve conter entre 3 e 50 caracteres!")]
@@ -42,13 +44,17 @@ namespace CostManeger.Models.ViewModels.User
         [Range(1, 3, ErrorMessage = "Selecione um perfil valido!")]
         public int Profile { get; set; }
 
-        public UserViewModel()
+        [DisplayName("Status")]
+        public bool IsActive { get; set; }
+
+        public EditUserViewModel()
         {
 
         }
 
-        public UserViewModel(Usuario usuario)
+        public EditUserViewModel(Usuario usuario)
         {
+            Id = usuario.Id;
             Name = usuario.Name;
             Surname = usuario.Surname;
             Email = usuario.Email;
@@ -57,6 +63,7 @@ namespace CostManeger.Models.ViewModels.User
             CPF = usuario.CPF;
             RG = usuario.RG;
             Profile = usuario.Profile;
+            IsActive = usuario.IsActive;
         }
     }
 }

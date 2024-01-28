@@ -1,0 +1,40 @@
+﻿@model CostManeger.Models.ViewModels.Bank.EditBankViewModel
+@{
+    ViewData["Title"] = "Editar Banco";
+}
+
+<div class="row mt-5 mb-2">
+    <div class="col">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        @using (Html.BeginForm("Edit", "Bank", FormMethod.Post, new { autocomplete = "off" }))
+        {
+            <input asp-for="Id" type="hidden"/>
+
+            <div class="row mb-3">
+                <div class="col-md-8 form-group">
+                    <label asp-for="Description" class="form-label">Nome</label>
+                    <input asp-for=Description type="text" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2 ms-1">
+                <div class="form-check form-switch">
+                    <input asp-for=IsActive type="checkbox" class="form-check-input" />
+                    <label asp-for=IsActive class="form-check-label">Status</label>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-controller="Bank" asp-action="Index" class="btn btn-default">Voltar</a>
+            </div>
+        }
+    </div>
+</div>
+

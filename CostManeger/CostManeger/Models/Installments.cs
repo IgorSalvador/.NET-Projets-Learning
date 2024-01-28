@@ -1,10 +1,9 @@
 ﻿namespace CostManeger.Models
 {
-    public class Perfis
+    public class Installments
     {
         public int Id { get; set; }
         public string Description { get; set; } = string.Empty;
-        public bool IsActive { get; set; }
-        public DateTimeOffset CreatedOn { get; set; } = DateTimeOffset.Now;
+        public bool IsActive { get; set; } = true;
     }
 }

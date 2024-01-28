@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador de Custos - @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CostManeger.styles.css" asp-append-version="true" />
 </head>
@@ -31,6 +32,7 @@
                                     Administração
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item text-light" asp-controller="Bank" asp-action="Index">Bancos</a></li>
                                     <li><a class="dropdown-item text-light" asp-controller="User" asp-action="Index">Usuários</a></li>
                                 </ul>
                             </li>
@@ -58,6 +60,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
         feather.replace();

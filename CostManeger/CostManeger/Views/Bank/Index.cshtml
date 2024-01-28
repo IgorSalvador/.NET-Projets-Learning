@@ -1,7 +1,7 @@
 ﻿@using CostManeger.Models.Utils
-@model IEnumerable<CostManeger.Models.Users>
+@model IEnumerable<CostManeger.Models.Banks>
 @{
-    ViewData["Title"] = "Listagem de usuários";
+    ViewData["Title"] = "Listagem de Bancos";
 }
 
 <div class="row mb-2 mt-5">
@@ -12,7 +12,7 @@
 
 <div class="row mb-4">
     <div class="col">
-        <a class="btn btn-success" asp-controller="User" asp-action="Create"><i data-feather="user-plus"></i> Novo</a>
+        <a class="btn btn-success" asp-controller="Bank" asp-action="Create"><i data-feather="user-plus"></i> Novo</a>
     </div>
 </div>
 
@@ -23,24 +23,18 @@
                 <tr>
                     <th>#</th>
                     <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>E-mail</th>
-                    <th>Perfil</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var usuario in Model)
+                @foreach (var banco in Model)
                 {
                     <tr>
-                        <td>@usuario.Id</td>
-                        <td>@usuario.Name</td>
-                        <td>@usuario.Surname</td>
-                        <td>@usuario.Email</td>
-                        <td>@ProfileOptins.GetProfileDescription(usuario.Profile)</td>
+                        <td>@banco.Id</td>
+                        <td>@banco.Description</td>
                         <td>
-                            @if (usuario.IsActive)
+                            @if (banco.IsActive)
                             {
                                 <i class="text-success" data-feather="check-square"></i>
                             }
@@ -50,8 +44,8 @@
                             }
                         </td>
                         <td>
-                            <a asp-controller="User" asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm btn-warning" title="Editar"><i data-feather="edit"></i></a>
-                            <a asp-controller="User" asp-action="Delete" asp-route-id="@usuario.Id" class="btn btn-sm btn-danger" title="Excluir"><i data-feather="trash-2"></i></a>
+                            <a asp-controller="Bank" asp-action="Edit" asp-route-id="@banco.Id" class="btn btn-sm btn-warning" title="Editar"><i data-feather="edit"></i></a>
+                            <a asp-controller="Bank" asp-action="Delete" asp-route-id="@banco.Id" class="btn btn-sm btn-danger" title="Excluir"><i data-feather="trash-2"></i></a>
                         </td>
                     </tr>
                 }

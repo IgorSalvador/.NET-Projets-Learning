@@ -18,6 +18,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\igors\Documents\Projetos\.NET Projets Learning\CostManeger\CostManeger
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/igors/Documents/Projetos/.NET Projets Learning/CostManeger/CostManeger/Views/Bank/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igors/Documents/Projetos/.NET Projets Learning/CostManeger/CostManeger/Views/Bank/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igors/Documents/Projetos/.NET Projets Learning/CostManeger/CostManeger/Views/Bank/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/igors/Documents/Projetos/.NET Projets Learning/CostManeger/CostManeger/Views/Home/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

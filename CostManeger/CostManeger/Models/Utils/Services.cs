@@ -7,7 +7,7 @@ namespace CostManeger.Models.Utils
 {
     public class Services
     {
-        public async Task SignIn(HttpContext ctx, Usuario usuario)
+        public async Task SignIn(HttpContext ctx, Users usuario)
         {
             List<Claim> claims = new List<Claim>
             {

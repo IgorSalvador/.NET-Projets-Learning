@@ -54,7 +54,7 @@ namespace CostManeger.Controllers
 
             string encryptedPassword = MD5Encryption.GetMD5Hash(loginViewModel.Password);
 
-            Usuario usuario = _db.Usuarios.Where(u => u.Email.ToUpper().Equals(loginViewModel.Username.ToUpper()) && u.Password.ToUpper().Equals(encryptedPassword.ToUpper())).FirstOrDefault();
+            Users usuario = _db.Usuarios.Where(u => u.Email.ToUpper().Equals(loginViewModel.Username.ToUpper()) && u.Password.ToUpper().Equals(encryptedPassword.ToUpper())).FirstOrDefault()!;
 
             if(usuario == null)
             {

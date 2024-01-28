@@ -32,7 +32,7 @@ namespace CostManeger.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(UserViewModel model)
+        public IActionResult Create(CreateUserViewModel model)
         {
             ViewData["ProfileOptions"] = context.Perfis.Where(p => p.IsActive).ToList();
             string password = string.Empty, encryptedPassword = string.Empty;
@@ -49,7 +49,7 @@ namespace CostManeger.Controllers
             password = Password.GenerateRandomPassword();
             encryptedPassword = MD5Encryption.GetMD5Hash(password);
 
-            Usuario usuario = new Usuario(model, encryptedPassword);
+            Users usuario = new Users(model, encryptedPassword);
             context.Usuarios.Add(usuario);
             context.SaveChanges();
 
@@ -62,7 +62,7 @@ namespace CostManeger.Controllers
         {
             ViewData["ProfileOptions"] = context.Perfis.Where(p => p.IsActive).ToList();
 
-            Usuario usuario = context.Usuarios.Find(id)!;
+            Users usuario = context.Usuarios.Find(id)!;
 
             if (usuario == null)
                 return NotFound();
@@ -78,7 +78,7 @@ namespace CostManeger.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            Usuario usuario = context.Usuarios.Find(model.Id)!;
+            Users usuario = context.Usuarios.Find(model.Id)!;
 
             usuario.Name = model.Name;
             usuario.Surname = model.Surname;
@@ -99,12 +99,12 @@ namespace CostManeger.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            Usuario usuario = context.Usuarios.Find(id)!;
+            Users usuario = context.Usuarios.Find(id)!;
 
             if (usuario == null)
                 return NotFound();
 
-            context.Remove(usuario);
+            context.Usuarios.Remove(usuario);
             context.SaveChanges();
 
             return RedirectToAction(nameof(Index));

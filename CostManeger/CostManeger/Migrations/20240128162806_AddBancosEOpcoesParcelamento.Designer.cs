@@ -4,6 +4,7 @@ using CostManeger.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CostManeger.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240128162806_AddBancosEOpcoesParcelamento")]
+    partial class AddBancosEOpcoesParcelamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +24,7 @@ namespace CostManeger.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CostManeger.Models.Banks", b =>
+            modelBuilder.Entity("CostManeger.Models.Bancos", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +50,7 @@ namespace CostManeger.Migrations
                     b.ToTable("Bancos");
                 });
 
-            modelBuilder.Entity("CostManeger.Models.Installments", b =>
+            modelBuilder.Entity("CostManeger.Models.Parcelamento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -142,52 +144,7 @@ namespace CostManeger.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CostManeger.Models.Payments", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("BankId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTimeOffset>("CreatedOn")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("InstallmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset>("PaidOn")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Value")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("InstallmentId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Pagamentos");
-                });
-
-            modelBuilder.Entity("CostManeger.Models.Profiles", b =>
+            modelBuilder.Entity("CostManeger.Models.Perfis", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -213,27 +170,27 @@ namespace CostManeger.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 28, 18, 48, 40, 502, DateTimeKind.Unspecified).AddTicks(8183), new TimeSpan(0, -3, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 28, 13, 28, 6, 677, DateTimeKind.Unspecified).AddTicks(3035), new TimeSpan(0, -3, 0, 0, 0)),
                             Description = "General",
                             IsActive = true
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 28, 18, 48, 40, 502, DateTimeKind.Unspecified).AddTicks(8187), new TimeSpan(0, -3, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 28, 13, 28, 6, 677, DateTimeKind.Unspecified).AddTicks(3038), new TimeSpan(0, -3, 0, 0, 0)),
                             Description = "Viewer",
                             IsActive = true
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 28, 18, 48, 40, 502, DateTimeKind.Unspecified).AddTicks(8189), new TimeSpan(0, -3, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 1, 28, 13, 28, 6, 677, DateTimeKind.Unspecified).AddTicks(3040), new TimeSpan(0, -3, 0, 0, 0)),
                             Description = "Administrator",
                             IsActive = true
                         });
                 });
 
-            modelBuilder.Entity("CostManeger.Models.Users", b =>
+            modelBuilder.Entity("CostManeger.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -282,33 +239,6 @@ namespace CostManeger.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("CostManeger.Models.Payments", b =>
-                {
-                    b.HasOne("CostManeger.Models.Banks", "Bank")
-                        .WithMany()
-                        .HasForeignKey("BankId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CostManeger.Models.Installments", "Installment")
-                        .WithMany()
-                        .HasForeignKey("InstallmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CostManeger.Models.Users", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bank");
-
-                    b.Navigation("Installment");
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

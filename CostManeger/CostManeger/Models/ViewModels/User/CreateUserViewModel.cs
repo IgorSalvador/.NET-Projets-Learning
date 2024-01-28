@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CostManeger.Models.ViewModels.User
 {
-    public class UserViewModel
+    public class CreateUserViewModel
     {
         [DisplayName("Nome")]
         [Required(ErrorMessage = "Nome obrigatório!")]
@@ -42,12 +42,12 @@ namespace CostManeger.Models.ViewModels.User
         [Range(1, 3, ErrorMessage = "Selecione um perfil valido!")]
         public int Profile { get; set; }
 
-        public UserViewModel()
+        public CreateUserViewModel()
         {
 
         }
 
-        public UserViewModel(Usuario usuario)
+        public CreateUserViewModel(Users usuario)
         {
             Name = usuario.Name;
             Surname = usuario.Surname;

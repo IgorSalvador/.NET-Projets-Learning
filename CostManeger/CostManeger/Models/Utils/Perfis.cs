@@ -1,6 +1,6 @@
 ﻿namespace CostManeger.Models.Utils
 {
-    public enum Profiles
+    public enum Perfis
     {
         General = 1,
         Viewer = 2,

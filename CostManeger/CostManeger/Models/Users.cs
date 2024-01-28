@@ -2,7 +2,7 @@
 
 namespace CostManeger.Models
 {
-    public class Usuario
+    public class Users
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -17,12 +17,12 @@ namespace CostManeger.Models
         public int Profile { get; set; } = 0;
         public bool IsActive { get; set; }
 
-        public Usuario()
+        public Users()
         {
             
         }
 
-        public Usuario(UserViewModel usuario, string password)
+        public Users(CreateUserViewModel usuario, string password)
         {
             Name = usuario.Name;
             Surname = usuario.Surname;

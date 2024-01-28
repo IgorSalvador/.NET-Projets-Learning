@@ -52,7 +52,7 @@ namespace CostManeger.Models.ViewModels.User
 
         }
 
-        public EditUserViewModel(Usuario usuario)
+        public EditUserViewModel(Users usuario)
         {
             Id = usuario.Id;
             Name = usuario.Name;

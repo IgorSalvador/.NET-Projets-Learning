@@ -1,0 +1,67 @@
+﻿@using CostManeger.Models.Utils
+@model IEnumerable<CostManeger.Models.Payments>
+@{
+    ViewData["Title"] = "Listagem de pagamentos";
+}
+
+<div class="row mb-2 mt-5">
+    <div class="col">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col">
+        <a class="btn btn-success" asp-controller="Payments" asp-action="Create"><i data-feather="user-plus"></i> Novo</a>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        <table class="table table-striped" id="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Pago Em</th>
+                    <th>Banco</th>
+                    <th>Parcelas</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td>@usuario.Id</td>
+                        <td>@usuario.Name</td>>
+                        <td>@usuario.Value.ToString("N2")</td>
+                        <td>@usuario.PaidOn.ToString("dd/MM/yyyy")</td>
+                        <td>@usuario.Bank.Description</td>
+                        <td>@usuario.Installment.Description</td>
+                        <td>
+                            <a asp-controller="Payment" asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm btn-warning" title="Editar"><i data-feather="edit"></i></a>
+                            <a asp-controller="Payment" asp-action="Delete" asp-route-id="@usuario.Id" class="btn btn-sm btn-danger" title="Excluir"><i data-feather="trash-2"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#table").DataTable({
+                "searching": false,
+                "bLengthChange": false,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+                }
+            });
+        });
+    </script>
+}
+

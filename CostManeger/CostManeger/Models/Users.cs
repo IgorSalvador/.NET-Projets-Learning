@@ -16,10 +16,11 @@ namespace CostManeger.Models
         public DateTimeOffset CreateOn { get; set; } = DateTimeOffset.Now;
         public int Profile { get; set; } = 0;
         public bool IsActive { get; set; }
+        public ICollection<Payments>? Payments { get; set; }
 
         public Users()
         {
-            
+
         }
 
         public Users(CreateUserViewModel usuario, string password)

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CostManeger.Models.ViewModels.Payment;
+using System.ComponentModel.DataAnnotations;
 
 namespace CostManeger.Models
 {
@@ -18,5 +19,18 @@ namespace CostManeger.Models
         public Installments Installment { get; set; } = null!;
         public Banks Bank { get; set; } = null!;
         public Users User { get; set; } = null!;
+
+        public Payments()
+        {
+            
+        }
+
+        public Payments(CreatePaymentViewModel model)
+        {
+            Name = model.Name;
+            Description = model.Description;
+            Value = model.Value;
+            PaidOn = model.PaidOn;
+        }
     }
 }

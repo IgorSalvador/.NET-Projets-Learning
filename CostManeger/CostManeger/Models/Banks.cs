@@ -15,7 +15,7 @@ namespace CostManeger.Models
             
         }
 
-        public Banks(CreateBankViewModel model)
+        public Banks(BankViewModel model)
         {
             Description = model.Description;
             IsActive = model.IsActive;

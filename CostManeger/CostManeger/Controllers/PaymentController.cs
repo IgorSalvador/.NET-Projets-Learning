@@ -32,15 +32,13 @@ namespace CostManeger.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreatePaymentViewModel model)
+        public IActionResult Create(PaymentViewModel model)
         {
             ViewData["BankList"] = context.Bancos.Where(b => b.IsActive == true).ToList().OrderBy(x => x.Id);
             ViewData["InsallmetsList"] = context.Parcelamento.Where(b => b.IsActive == true).ToList().OrderBy(x => x.Id);
 
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
             Payments payment = new Payments(model);
             payment.BankId = model.BankId;

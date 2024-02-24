@@ -25,7 +25,7 @@ namespace CostManeger.Models
             
         }
 
-        public Payments(CreatePaymentViewModel model)
+        public Payments(PaymentViewModel model)
         {
             Name = model.Name;
             Description = model.Description;

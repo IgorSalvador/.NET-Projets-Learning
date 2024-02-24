@@ -30,7 +30,7 @@ namespace CostManeger.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateBankViewModel model)
+        public IActionResult Create(BankViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -50,18 +50,18 @@ namespace CostManeger.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int Id)
         {
-            Banks banco = context.Bancos.Find(id)!;
+            Banks banco = context.Bancos.Find(Id)!;
 
             if (banco == null)
                 return NotFound();
 
-            return View(new EditBankViewModel(banco));
+            return View(new BankViewModel(banco));
         }
 
         [HttpPost]
-        public IActionResult Edit(EditBankViewModel model)
+        public IActionResult Edit(BankViewModel model)
         {
             if (!ModelState.IsValid)
             {

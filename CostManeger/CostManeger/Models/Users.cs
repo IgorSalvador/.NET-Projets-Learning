@@ -23,7 +23,7 @@ namespace CostManeger.Models
 
         }
 
-        public Users(CreateUserViewModel usuario, string password)
+        public Users(UserViewModel usuario, string password)
         {
             Name = usuario.Name;
             Surname = usuario.Surname;

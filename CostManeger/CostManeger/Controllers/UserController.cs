@@ -32,7 +32,7 @@ namespace CostManeger.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateUserViewModel model)
+        public IActionResult Create(UserViewModel model)
         {
             ViewData["ProfileOptions"] = context.Perfis.Where(p => p.IsActive).ToList();
             string password = string.Empty, encryptedPassword = string.Empty;
@@ -58,27 +58,27 @@ namespace CostManeger.Controllers
 
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int Id)
         {
             ViewData["ProfileOptions"] = context.Perfis.Where(p => p.IsActive).ToList();
 
-            Users usuario = context.Usuarios.Find(id)!;
+            Users usuario = context.Usuarios.Find(Id)!;
 
             if (usuario == null)
                 return NotFound();
 
-            return View(new EditUserViewModel(usuario));
+            return View(new UserViewModel(usuario));
         }
 
         [HttpPost]
-        public IActionResult Edit(EditUserViewModel model)
+        public IActionResult Edit(int Id, UserViewModel model)
         {
             ViewData["ProfileOptions"] = context.Perfis.Where(p => p.IsActive).ToList();
 
             if (!ModelState.IsValid)
                 return View(model);
 
-            Users usuario = context.Usuarios.Find(model.Id)!;
+            Users usuario = context.Usuarios.Find(Id)!;
 
             usuario.Name = model.Name;
             usuario.Surname = model.Surname;

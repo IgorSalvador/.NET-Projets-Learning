@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hC7JMKC4z0kEv40ysmukYNS1ITSvWjIj0YfaaLUbtrGrSex1HxDCTagWax3/2FZacgMVy7tyY2FURGOhWybYGQ==",
+  "dgSpecHash": "1GOAS5lmZYlfhdZ28uLKhbqoVL+7ilbQ0Nhbwlqjs7jIzaIqe91ObkgKwrDsfFcego1x73tzo/UGfC1axSqRdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\igors\\Documents\\Projetos\\TWTodoList\\TWTodoList\\TWTodoList.csproj",
+  "projectFilePath": "C:\\Users\\igors\\Documents\\Projetos\\.NET Projets Learning\\TWTodoList\\TWTodoList\\TWTodoList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\igors\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\igors\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

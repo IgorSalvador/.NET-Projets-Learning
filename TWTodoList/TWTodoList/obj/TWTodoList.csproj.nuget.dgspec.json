@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\igors\\Documents\\Projetos\\TWTodoList\\TWTodoList\\TWTodoList.csproj": {}
+    "C:\\Users\\igors\\Documents\\Projetos\\.NET Projets Learning\\TWTodoList\\TWTodoList\\TWTodoList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\igors\\Documents\\Projetos\\TWTodoList\\TWTodoList\\TWTodoList.csproj": {
+    "C:\\Users\\igors\\Documents\\Projetos\\.NET Projets Learning\\TWTodoList\\TWTodoList\\TWTodoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\igors\\Documents\\Projetos\\TWTodoList\\TWTodoList\\TWTodoList.csproj",
+        "projectUniqueName": "C:\\Users\\igors\\Documents\\Projetos\\.NET Projets Learning\\TWTodoList\\TWTodoList\\TWTodoList.csproj",
         "projectName": "TWTodoList",
-        "projectPath": "C:\\Users\\igors\\Documents\\Projetos\\TWTodoList\\TWTodoList\\TWTodoList.csproj",
+        "projectPath": "C:\\Users\\igors\\Documents\\Projetos\\.NET Projets Learning\\TWTodoList\\TWTodoList\\TWTodoList.csproj",
         "packagesPath": "C:\\Users\\igors\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\igors\\Documents\\Projetos\\TWTodoList\\TWTodoList\\obj\\",
+        "outputPath": "C:\\Users\\igors\\Documents\\Projetos\\.NET Projets Learning\\TWTodoList\\TWTodoList\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
